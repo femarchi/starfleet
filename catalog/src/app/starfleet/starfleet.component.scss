@@ -1,0 +1,15 @@
+:host ::ng-deep .top-bar {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+
+    .app-title {
+        padding: 0.5rem;
+        margin: 0;
+    }
+
+    .nav-button {
+        border-radius: 0;
+    }
+
+}

@@ -1,0 +1,30 @@
+<!-- Top bar -->
+<p-menubar styleClass="top-bar">
+    <ng-template pTemplate="start">
+    <h3 class="app-title">Star Wars Catalog</h3>
+    </ng-template>
+    <ng-template pTemplate="end">
+    <button pButton pRipple type="button"
+        class="p-button-text nav-button"
+        label="Ships"
+        (click)="navigateToShips()"
+    ></button>
+    <button pButton pRipple type="button"
+        class="p-button-text nav-button"
+        label="Pilots"
+        (click)="navigateToPilots()"
+        ></button>
+    <button pButton pRipple type="button"
+        class="p-button-text nav-button"
+        label="Home"
+        (click)="navigateToDashboard()"
+    ></button>
+    </ng-template>
+</p-menubar>
+
+<!-- Main content -->
+<div class="p-grid">
+    <div class="p-col-12">
+        <router-outlet></router-outlet>
+    </div>
+</div>
