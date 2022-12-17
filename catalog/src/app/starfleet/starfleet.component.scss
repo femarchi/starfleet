@@ -1,3 +1,4 @@
+// customize primeng menu bar style
 :host ::ng-deep .top-bar {
     padding: 0;
     border: none;
@@ -12,4 +13,27 @@
         border-radius: 0;
     }
 
+}
+
+// detach content from borders
+.content-wrapper {
+    padding: 1em;
+}
+
+// constraint card width and add hover effect
+:host ::ng-deep .p-card {
+    margin: 1em;
+    width: 360px;
+    transition: 0.5s;
+
+    &:hover {
+        background-color: lightgray;
+        transition: 0.5s;
+    }
+}
+
+// ensure dataview content is not displayed as blocks
+:host ::ng-deep .p-dataview-grid>.p-dataview-content>div {
+    display: flex;
+    flex-wrap: wrap;
 }

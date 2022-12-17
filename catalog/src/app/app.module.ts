@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
-import { StarWarsCatalogService } from './services/star-wars-catalog.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { StarWarsCatalogService } from './services/star-wars-catalog.service';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [StarWarsCatalogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
