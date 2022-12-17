@@ -6,8 +6,30 @@ import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
   selector: 'app-ships',
-  templateUrl: './ships.component.html',
-  styleUrls: ['./ships.component.scss'],
+  template: `
+    <p-dataView
+      layout="grid"
+      [value]="models"
+      [rows]="rowsPerPage"
+      [paginator]="true"
+      [totalRecords]="modelCount"
+      [lazy]="true"
+      [loading]="loading"
+      (onLazyLoad)="onDataViewContentLoad($event)"
+    >
+      <ng-template let-ship pTemplate="gridItem">
+        <div class="p-col-12 p-md-4">
+          <p-card [header]="ship.name" [subheader]="ship.model">
+            <ng-template pTemplate="header">
+              <div style="padding: 1em">
+                <img alt="Card" [src]="getShipImageFilePath(ship.name)">
+              </div>
+            </ng-template>
+          </p-card>
+        </div>
+      </ng-template>
+    </p-dataView>
+  `,
 })
 export class ShipsComponent {
   rowsPerPage: number = 10;
@@ -26,9 +48,15 @@ export class ShipsComponent {
   }
 
   public onDataViewContentLoad(event: LazyLoadEvent): void {
+    // first is incremented by rows, so it will always be divisible
     const first: number = event.first ?? 0;
     const rows: number = event.rows ?? 1;
-    const pageIndex: number = (first + rows) / rows;
+    const pageIndex: number = first / rows + 1;
     this.fetchPage(pageIndex);
+  }
+
+  public getShipImageFilePath(shipName: Pick<Starship, 'name'>): string {
+    // replace with search by shipName in mapping or db
+    return 'assets/starwars-placeholder.png'
   }
 }

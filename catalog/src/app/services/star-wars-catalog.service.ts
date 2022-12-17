@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Endpoints } from '../endpoints';
 import { PagedCollection } from '../models/paged-collection';
 import { Starship } from '../models/starship';
@@ -16,9 +16,11 @@ const SWAPI_BASE_URL = 'https://swapi.dev/api';
 export class StarWarsCatalogService {
   constructor(private http: HttpClient) {}
 
-  public getStarshipPage(index: number = 1): Observable<PagedCollection<Starship>> {
-    const url = `${SWAPI_BASE_URL}${Endpoints.Starships}/?page=${index}`;
-    return this.http.get<PagedCollection<Starship>>(url);
+  /**
+   * Request the starships paged collection from the API
+   */
+  public getStarshipPage(page: number = 1): Observable<PagedCollection<Starship>> {
+    const url: string = `${SWAPI_BASE_URL}${Endpoints.Starships}`;
+    return this.http.get<PagedCollection<Starship>>(url, { params: { page: page } });
   }
-
 }
