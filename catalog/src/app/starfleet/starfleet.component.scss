@@ -2,12 +2,19 @@
 
 // detach content from borders
 .content-wrapper {
-    padding: 1em;
     background: none;
+    margin-top: $topBarHeight;
 }
 
 // customize primeng menu bar style
 :host ::ng-deep .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $topBarHeight;
+    width: 100%;
+    z-index: 1000;
+
     padding: 0;
     border: none;
     border-radius: 0;
@@ -24,6 +31,8 @@
         border: none;
         border-radius: 0;
         background-color: $themeDarkBlue;
+        height: $topBarHeight;
+
 
         .p-button-label {
             color: $themeLightGray;
