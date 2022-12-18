@@ -1,8 +1,13 @@
+@import '../../layout_variables.scss';
+
 // customize primeng menu bar style
 :host ::ng-deep .top-bar {
     padding: 0;
     border: none;
     border-radius: 0;
+
+    background-color: $themeDarkBlue;
+    color: $themeLightGray;
 
     .app-title {
         padding: 0.5rem;
@@ -11,6 +16,11 @@
 
     .nav-button {
         border-radius: 0;
+        background-color: $themeDarkBlue;
+
+        .p-button-label {
+            color: $themeLightGray;
+        }
     }
 
 }
@@ -18,6 +28,7 @@
 // detach content from borders
 .content-wrapper {
     padding: 1em;
+    background-color: $themeBlack;
 }
 
 // constraint card width and add hover effect

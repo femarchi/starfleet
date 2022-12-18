@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { StarfleetRoutes } from './starfleet-routes';
+
+type TopBarButton = { label: string; command: () => void };
 
 @Component({
   selector: 'app-starfleet',
@@ -7,21 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./starfleet.component.scss'],
 })
 export class StarfleetComponent {
+  topBarButtons: TopBarButton[] = [
+    { label: 'Home', command: () => this.navigateToStarfleetRoute(StarfleetRoutes.Home) },
+    { label: 'Ships', command: () => this.navigateToStarfleetRoute(StarfleetRoutes.Ships) },
+    { label: 'Pilots', command: () => this.navigateToStarfleetRoute(StarfleetRoutes.Pilots) },
+  ];
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-  ) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-  public navigateToShips(): void {
-    this.router.navigate(['ships'], {relativeTo: this.route})    
-  }
-
-  public navigateToPilots(): void {
-    this.router.navigate(['pilots'], {relativeTo: this.route})    
-  }
-
-  public navigateToDashboard(): void {
-    this.router.navigate(['dashboard'], {relativeTo: this.route})    
+  private navigateToStarfleetRoute(route: StarfleetRoutes): void {
+    this.router.navigate([route], { relativeTo: this.route });
   }
 }
