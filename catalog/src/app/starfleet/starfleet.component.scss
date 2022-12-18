@@ -1,5 +1,11 @@
 @import '../../layout_variables.scss';
 
+// detach content from borders
+.content-wrapper {
+    padding: 1em;
+    background: none;
+}
+
 // customize primeng menu bar style
 :host ::ng-deep .top-bar {
     padding: 0;
@@ -14,37 +20,22 @@
         margin: 0;
     }
 
-    .nav-button {
+    .p-selectbutton .p-button {
+        border: none;
         border-radius: 0;
         background-color: $themeDarkBlue;
 
         .p-button-label {
             color: $themeLightGray;
         }
+
+        &:not(.p-highlight):hover {
+            background-color: $themeBlack;
+        }
+
+        &.p-highlight {
+            background: $themeOrange;
+            color: $themeOrange;
+        }
     }
-
-}
-
-// detach content from borders
-.content-wrapper {
-    padding: 1em;
-    background-color: $themeBlack;
-}
-
-// constraint card width and add hover effect
-:host ::ng-deep .p-card {
-    margin: 1em;
-    width: 360px;
-    transition: 0.5s;
-
-    &:hover {
-        background-color: lightgray;
-        transition: 0.5s;
-    }
-}
-
-// ensure dataview content is not displayed as blocks
-:host ::ng-deep .p-dataview-grid>.p-dataview-content>div {
-    display: flex;
-    flex-wrap: wrap;
 }

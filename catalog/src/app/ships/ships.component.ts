@@ -6,6 +6,7 @@ import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
   selector: 'app-ships',
+  styleUrls: ['ships.component.scss'],
   template: `
     <p-dataView
       layout="grid"
@@ -22,7 +23,7 @@ import { LazyLoadEvent } from 'primeng/api';
           <p-card [header]="ship.name" [subheader]="ship.model">
             <ng-template pTemplate="header">
               <div style="padding: 1em">
-                <img alt="Card" [src]="getShipImageFilePath(ship.name)">
+                <img alt="Card" [src]="getShipImageFilePath(ship.name)" />
               </div>
             </ng-template>
           </p-card>
@@ -57,6 +58,6 @@ export class ShipsComponent {
 
   public getShipImageFilePath(shipName: Pick<Starship, 'name'>): string {
     // replace with search by shipName in mapping or db
-    return 'assets/starwars-placeholder.png'
+    return 'assets/starwars-placeholder.png';
   }
 }

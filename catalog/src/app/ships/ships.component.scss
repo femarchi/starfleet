@@ -1,0 +1,62 @@
+@import '../../layout_variables.scss';
+
+// constraint card width and add hover effect
+:host ::ng-deep .p-card {
+    margin: 1em;
+    width: 240px;
+    min-height: 300px;
+    transition: 0.5s;
+    background-color: $themeDarkBlue;
+    color: $themeLightGray;
+
+    &:hover {
+        background-color: $themeOrange;
+        transition: 0.5s;
+    }
+
+    .p-card-title {
+        font-size: 1em;
+    }
+
+    .p-card-subtitle {
+        font-size: 0.8em;
+    }
+
+    .p-card-content {
+        // for now all information is in the header
+        padding: 0;
+        margin: 0;
+    }
+}
+
+:host ::ng-deep .p-dataview-grid {
+    &>.p-dataview-content {
+        background: none;
+
+        // ensure dataview content is not displayed as blocks
+        &>div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .p-paginator {
+        background: none;
+        border: none;
+
+        button {
+            color: $themeDarkBlue;
+
+            &:not(.p-highlight):hover {
+                color: $themeLightGray;
+                background: $themeDarkBlue;
+            }
+        }
+
+        .p-highlight {
+            color: $themeLightGray;
+            background: $themeOrange;
+        }
+    }
+}
