@@ -1,4 +1,6 @@
-.dashboard-content {
+@import '../../layout_variables.scss';
+
+.dashboard-wrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -9,4 +11,28 @@
 
     height: 100%;
     min-width: 100%;
+    padding-top: $topBarHeight;
+
+    .dashboard-content {
+        margin-top: 5%;
+        text-align: center;
+
+        .dashboard-title {
+            color: $themeLightGray;
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+    }
+}
+
+:host ::ng-deep .p-button {
+    border: none;
+    margin-left: 1em;
+    margin-right: 1em;
+    background: $themeDarkBlue;
+    color: $themeLightGray;
+
+    &:hover {
+        background: $themeOrange;
+    }
 }
