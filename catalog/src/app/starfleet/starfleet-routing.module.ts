@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { PilotsComponent } from '../pilots/pilots.component';
 import { ShipsComponent } from '../ships/ships.component';
+import { StarfleetRoutes } from './starfleet-routes';
 import { StarfleetComponent } from './starfleet.component';
 
 const routes: Routes = [
@@ -12,19 +13,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: StarfleetRoutes.Home,
         pathMatch: 'full'
       },
       {
-        path: 'dashboard',
+        path: StarfleetRoutes.Home,
         component: DashboardComponent
       },
       {
-        path: 'ships',
+        path: StarfleetRoutes.Ships,
         component: ShipsComponent 
       },
       {
-        path: 'pilots',
+        path: StarfleetRoutes.Pilots,
         component: PilotsComponent 
       }
     ]
