@@ -23,7 +23,7 @@ import { LazyLoadEvent } from 'primeng/api';
           <p-card [header]="ship.name" [subheader]="ship.model">
             <ng-template pTemplate="header">
               <div style="padding: 1em">
-                <img alt="Card" [src]="getShipImageFilePath(ship.name)" />
+                <img alt="Card" [src]="ship.imageUrl" />
               </div>
             </ng-template>
           </p-card>
@@ -35,7 +35,7 @@ import { LazyLoadEvent } from 'primeng/api';
 export class ShipsComponent {
   rowsPerPage: number = 10;
   modelCount: number = 0;
-  models: Starship[] = [];
+  models: (Starship | { imageUrl: string })[] = [];
   loading: boolean = true;
 
   constructor(private catalogService: StarWarsCatalogService) {}
@@ -43,8 +43,9 @@ export class ShipsComponent {
   private async fetchPage(index: number): Promise<void> {
     this.loading = true;
     const page = await firstValueFrom(this.catalogService.getStarshipPage(index));
+    const models = page.results.map(this.toImageModel)
     this.modelCount = page.count;
-    this.models = page.results;
+    this.models = models;
     this.loading = false;
   }
 
@@ -56,8 +57,8 @@ export class ShipsComponent {
     this.fetchPage(pageIndex);
   }
 
-  public getShipImageFilePath(shipName: Pick<Starship, 'name'>): string {
+  private toImageModel(ship: Starship): Starship | { imageUrl: string } {
     // replace with search by shipName in mapping or db
-    return 'assets/starwars-placeholder.png';
+    return {...ship, imageUrl: 'assets/starwars-placeholder.png'}
   }
 }
