@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DataViewModule } from 'primeng/dataview';
 import { MenubarModule } from 'primeng/menubar';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 import { StarfleetComponent } from './starfleet.component';
 
@@ -12,7 +14,7 @@ describe('StarfleetComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [StarfleetComponent],
-      imports: [RouterTestingModule, MenubarModule, DataViewModule],
+      imports: [FormsModule, RouterTestingModule, MenubarModule, DataViewModule, SelectButtonModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(StarfleetComponent);
