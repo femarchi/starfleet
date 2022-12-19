@@ -37,3 +37,17 @@ The app should compile and be available on `http://localhost:4200/`.
 ## Running unit tests
 
 Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+-------
+
+## Autoavailação
+
+Este projeto foi desenvolvido usando o editor VSCode em uma máquina com sistema operacional Ubuntu Linux. Utilizei meus conhecimentos do editor para criar um workspace para o projeto e do bash para fazer algumas operações básicas como criar e apagar pastas e arquivos.
+
+Optei por usar o framework Angular junto com a biblioteca de componentes PrimeNG. Para conseguir instalar o framework junto com a biblioteca de modo a ser distribuído, precisei usar os conhecimentos do node package manager (npm).
+
+O Angular usa uma estrutura de componentes onde cada um possui um template HTML, um arquivo de estilos .css, .less, .scss ou .sass, e arquivos com a lógica do componente e testes em typescript. Precisei saber compor a estrutura dos templates HTML usando as tags apropriadas, aliado com os estilos em SCSS para dimensionar e posicionar os elementos adequadamente.
+
+Para a lógica dos componentes usei meus conhecimentos em Typescript, rxjs e Angular para criar uma estrutura de classes e funções devidamente tipadas que adquirem e mapeiam as variáveis utilizadas nos templates de cada página através de requisição assíncrona dos dados da API. Especificamente usei o conhecimento de Angular para configurar as rotas e módulos que compõem a aplicação e carregam os templates adequados de acordo com o input do usuário.
+
+Criei um repositório Git na raíz do projeto e fui adicionando commits conforme realizava alterações significativas no código. Precisei utilizar meus conhecimentos em Git e Vim para eventualmente reoganizar os commits com rebase e editar as mensagens de cada commit.
